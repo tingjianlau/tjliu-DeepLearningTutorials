@@ -1,3 +1,4 @@
+#-*-coding: utf-8 -*-
 """
 """
 from __future__ import print_function, division
@@ -17,6 +18,11 @@ from rbm import RBM
 
 
 # start-snippet-1
+'''
+我们定义DBN类，它包含了MLP的层，用于连接RBMs。
+因为使用RBMs初始化MLP，所以要尽量降低两个类的耦合度：
+RBMs用于初始化网络，MLP用于分类。
+'''
 class DBN(object):
     """Deep Belief Network
 
@@ -97,7 +103,7 @@ class DBN(object):
                 layer_input = self.x
             else:
                 layer_input = self.sigmoid_layers[-1].output
-
+            
             sigmoid_layer = HiddenLayer(rng=numpy_rng,
                                         input=layer_input,
                                         n_in=input_size,
@@ -105,6 +111,7 @@ class DBN(object):
                                         activation=T.nnet.sigmoid)
 
             # add the layer to our list of layers
+            # self.sigmoid_layers存储了正向图并组成了MLP
             self.sigmoid_layers.append(sigmoid_layer)
 
             # its arguably a philosophical question...  but we are
@@ -112,16 +119,22 @@ class DBN(object):
             # sigmoid_layers are parameters of the DBN. The visible
             # biases in the RBM are parameters of those RBMs, but not
             # of the DBN.
+            # sigmoid层的参数是DBN的参数，但RBM层中的hbias不是
+            # 即在后续的微调时，因为每个RBM和sigmoid层共享权重和隐层偏置
+            # 所以在微调时更新sigmoid层的W和b相当于微调RBM层的W和hbias
             self.params.extend(sigmoid_layer.params)
 
             # Construct an RBM that shared weights with this layer
+            # 此时RBM的W, b都是来自sigmoid层
             rbm_layer = RBM(numpy_rng=numpy_rng,
                             theano_rng=theano_rng,
                             input=layer_input,
                             n_visible=input_size,
                             n_hidden=hidden_layers_sizes[i],
-                            W=sigmoid_layer.W,
-                            hbias=sigmoid_layer.b)
+                            W=sigmoid_layer.W,  # 将sigmoid层的共享变量W作为RBMs层的W，
+                                                # 所以sigmoid层和RBMs层共享此变量
+                            hbias=sigmoid_layer.b)  # 同理对于RBMs层的hbias
+            # self.rbm_layers存储了RBMs并预训练MLP的每一层
             self.rbm_layers.append(rbm_layer)
 
         # We now need to add a logistic layer on top of the MLP
@@ -129,6 +142,7 @@ class DBN(object):
             input=self.sigmoid_layers[-1].output,
             n_in=hidden_layers_sizes[-1],
             n_out=n_outs)
+
         self.params.extend(self.logLayer.params)
 
         # compute the cost for second phase of training, defined as the
@@ -158,6 +172,7 @@ class DBN(object):
 
         # index to a [mini]batch
         index = T.lscalar('index')  # index to a minibatch
+        # 为了改变训练时的学习率，这里使用Theano变量类型，并赋予一个初始值。
         learning_rate = T.scalar('lr')  # learning rate to use
 
         # begining of a batch, given `index`
@@ -180,6 +195,9 @@ class DBN(object):
                 outputs=cost,
                 updates=updates,
                 givens={
+                    # 当第二层RBM调用fn时，此时的输入应该是上一层RBM的输出
+                    # 而不是原始的数据集，不能被givens所蒙骗
+                    # 可能是因为第二层RBM的更新中不会直接用到self.x
                     self.x: train_set_x[batch_begin:batch_end]
                 }
             )
@@ -244,6 +262,7 @@ class DBN(object):
 
         # compute list of fine-tuning updates
         updates = []
+        # 不同于预训练时的共享变量学习率，此时的学习率不是共享变量，一旦传入不能更改
         for param, gparam in zip(self.params, gparams):
             updates.append((param, param - gparam * learning_rate))
 
@@ -359,6 +378,7 @@ def test_DBN(finetune_lr=0.1, pretraining_epochs=100,
             # go through the training set
             c = []
             for batch_index in range(n_train_batches):
+                # 因为lr是共享变量，所以可以被更改
                 c.append(pretraining_fns[i](index=batch_index,
                                             lr=pretrain_lr))
             print('Pre-training layer %i, epoch %d, cost ' % (i, epoch), end=' ')

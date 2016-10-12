@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 """This tutorial introduces restricted boltzmann machines (RBM) using Theano.
 
 Boltzmann Machines (BMs) are a particular form of energy-based model which

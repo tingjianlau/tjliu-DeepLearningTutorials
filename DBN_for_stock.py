@@ -25,13 +25,7 @@ from logistic_sgd import LogisticRegression, load_data
 from DBN import DBN
 from DataHandle import DataHandle
 
-#datapath = ['data/ifly_train', 'data/ifly_test', 'data/ifly_val'] 
-#datapath = ['data/000001/train.txt', 'data/000001/val.txt', 'data/000001/test.txt'] 
-datapath = [
-        '/home/tjliu/deep-learning/stock-prediction/data_minute/data_000002_train',
-        '/home/tjliu/deep-learning/stock-prediction/data_minute/data_000002_val',       
-        '/home/tjliu/deep-learning/stock-prediction/data_minute/data_000002_test'        
-        ]
+datapath = ['data_daily/000001/data_000001_train', 'data_daily/000001/data_000001_val', 'data_daily/000001/data_000001_test'] 
 
 
 PRETRAINING_EPOCH = 40
@@ -52,7 +46,7 @@ def test_DBN(finetune_lr=0.1, pretraining_epochs=PRETRAINING_EPOCH,
              pretrain_lr=0.01, k=1, training_epochs=TRAINING_EPOCH,
              batch_size=BATCH_SIZE, axis_1=0, axis_2 = 0):
     print('... loading data')
-    dataHandle = DataHandle(2,  6)
+    dataHandle = DataHandle(1,  5)
     train_set_x, train_set_y = dataHandle.load_data(datapath[0], SEQ_LENGTH, axis_1, axis_2)
     train_data_size = len(train_set_x)
 
@@ -81,6 +75,8 @@ def test_DBN(finetune_lr=0.1, pretraining_epochs=PRETRAINING_EPOCH,
 
     #计算minibatches的个数
     n_train_batches = train_data_size // BATCH_SIZE
+    n_valid_batches = valid_data_size// BATCH_SIZE
+    n_test_batches = test_data_size // BATCH_SIZE
 
 
     # numpy random generator
@@ -139,7 +135,8 @@ def test_DBN(finetune_lr=0.1, pretraining_epochs=PRETRAINING_EPOCH,
     # early-stopping parameters
 
     # look as this many examples regardless
-    patience = numpy.inf 
+    patience = 10000 
+    #patience = numpy.inf 
     #patience = 4 * n_train_batches
 
     # wait this much longer when a new best is found
@@ -159,8 +156,8 @@ def test_DBN(finetune_lr=0.1, pretraining_epochs=PRETRAINING_EPOCH,
     done_looping = False
     epoch = 0
 
-    while (epoch < training_epochs):
-    #while (epoch < training_epochs) and (not done_looping):
+    #while (epoch < training_epochs):
+    while (epoch < training_epochs) and (not done_looping):
         epoch = epoch + 1
         for minibatch_index in range(n_train_batches):
 

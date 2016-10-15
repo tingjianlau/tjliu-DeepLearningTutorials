@@ -1,0 +1,37 @@
+Loading data ...
+... loading data
+... loading data
+... loading data
+Building network ...
+Computing updates ...
+Compiling functions ...
+Training ...
+epoch 0, lrate = 0.010000
+cost = 0.40046755856, acc = 0.823588709677
+epoch 1, lrate = 0.010000
+cost = 0.380713610087, acc = 0.836693548387
+epoch 2, lrate = 0.010000
+cost = 0.387376945812, acc = 0.820564516129
+epoch 3, lrate = 0.005000
+cost = 0.375111188108, acc = 0.831653225806
+epoch 4, lrate = 0.005000
+cost = 0.375789809881, acc = 0.832661290323
+epoch 5, lrate = 0.002500
+cost = 0.36278241437, acc = 0.848790322581
+epoch 6, lrate = 0.002500
+cost = 0.363260429112, acc = 0.846774193548
+epoch 7, lrate = 0.001250
+cost = 0.357885329942, acc = 0.853830645161
+epoch 8, lrate = 0.001250
+cost = 0.356965684609, acc = 0.853830645161
+epoch 9, lrate = 0.001250
+cost = 0.357527629533, acc = 0.853830645161
+epoch 10, lrate = 0.000625
+cost = 0.356074526557, acc = 0.853830645161
+epoch 11, lrate = 0.000625
+cost = 0.356173056061, acc = 0.852822580645
+epoch 12, lrate = 0.000313
+cost = 0.357989796013, acc = 0.851814516129
+epoch 13, lrate = 0.000156
+cost = 0.359269630446, acc = 0.850806451613
+test acc = 0.869959677419

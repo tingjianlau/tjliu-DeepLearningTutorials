@@ -351,4 +351,3 @@ if __name__ == '__main__':
         print("test acc = {}".format(acc_test))
     except KeyboardInterrupt:
         pass
-'''

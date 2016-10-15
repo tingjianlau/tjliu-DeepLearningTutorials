@@ -14,17 +14,11 @@ import theano
 import theano.tensor as T
 
 class DataHandle(object):
-    def __init__(self, seq_length=10, row_interval=[1, 5], axes=[0, 0],
-                delimiter='\t', del_table_header=True):
-        self.row_start = row_interval[0]
-        self.row_end = row_interval[1]
-        self.seq_length = seq_length
-        self.axis1=axes[0]
-        self.axis2=axes[1]
-        self.delimiter=delimiter
-        self.del_table_header=del_table_header
+    def __init__(self, row_start=1, row_end=5):
+        self.row_start = row_start 
+        self.row_end = row_end 
 
-    def load_data(self, data_path):
+    def load_data(self, data_path, seq_length=10, axis1=0, axis2=0, del_table_header = 1, delimiter='\t'):
         '''
         params:
         ------
@@ -36,24 +30,24 @@ class DataHandle(object):
         return: 拼接好之后的数据集和类号
         '''
 
-        print("Loading data from {} ...".format(data_path))
+        print("Loading data from ", data_path)
         data = open(data_path, 'r')
         data_set_x = []
         for line in data:
-            data_set_x.append(line.split('\n')[0].split(self.delimiter)[self.row_start:self.row_end])
+            data_set_x.append(line.split('\n')[0].split(delimiter)[self.row_start:self.row_end])
         data.close()
-        if self.del_table_header:
+        if del_table_header:
             data_set_x = data_set_x[1::]
 
         data_set_y = []
-        new_len = len(data_set_x)-self.seq_length
+        new_len = len(data_set_x)-seq_length
         for i in range(new_len):
-            if data_set_x[i+self.seq_length-1][self.axis1] > data_set_x[i+self.seq_length][self.axis2]:
+            if data_set_x[i+seq_length-1][axis1] > data_set_x[i+seq_length][axis2]:
                 data_set_y.append(0)
             else:
                 data_set_y.append(1)
 
-            for j in range(self.seq_length-1):
+            for j in range(seq_length-1):
                 data_set_x[i].extend(data_set_x[i+j+1])
 
         return data_set_x[0:new_len], data_set_y
@@ -79,26 +73,4 @@ class DataHandle(object):
 
         return shared_x, T.cast(shared_y, 'int32')
 
-    def get_datasets(self, datapath):
-        '''
-        params:
-        ------
-        datapath:   list
-            加载的路径列表
-        return: 
-        ------
-        以列表的形式返回所有的数据集和类号
-        '''
-        unshared_datasets = []
-        shared_datasets = []
-        for i in range(len(datapath)):
-            data_set_x, data_set_y = self.load_data(datapath[i])
-            unshared_datasets.append((data_set_x, data_set_y))
-            # 归一化
-            data_set_x = self.minmax_norm(data_set_x)
-            # 转化为共享变量
-            data_set_x, data_set_y = self.shared_dataset(data_set_x, data_set_y)
-            shared_datasets.append((data_set_x, data_set_y))
-
-        return shared_datasets, unshared_datasets
-   
+        

@@ -77,4 +77,599 @@ Pre-training layer 0, epoch 71, cost  -69.0216529752
 Pre-training layer 0, epoch 72, cost  -68.9971841962
 Pre-training layer 0, epoch 73, cost  -68.9961085199
 Pre-training layer 0, epoch 74, cost  -68.9565411546
-Pre-training layer 0, epoch 75
+Pre-training layer 0, epoch 75, cost  -68.9157067575
+Pre-training layer 0, epoch 76, cost  -68.9290936326
+Pre-training layer 0, epoch 77, cost  -68.9208188661
+Pre-training layer 0, epoch 78, cost  -68.8495322062
+Pre-training layer 0, epoch 79, cost  -68.8438237148
+Pre-training layer 0, epoch 80, cost  -68.8190297064
+Pre-training layer 0, epoch 81, cost  -68.8388845411
+Pre-training layer 0, epoch 82, cost  -68.7944441742
+Pre-training layer 0, epoch 83, cost  -68.7787019783
+Pre-training layer 0, epoch 84, cost  -68.7941432187
+Pre-training layer 0, epoch 85, cost  -68.7532119643
+Pre-training layer 0, epoch 86, cost  -68.7224125978
+Pre-training layer 0, epoch 87, cost  -68.7357149205
+Pre-training layer 0, epoch 88, cost  -68.6927196201
+Pre-training layer 0, epoch 89, cost  -68.6975880206
+Pre-training layer 0, epoch 90, cost  -68.6824179514
+Pre-training layer 0, epoch 91, cost  -68.6694391387
+Pre-training layer 0, epoch 92, cost  -68.6340069034
+Pre-training layer 0, epoch 93, cost  -68.6203941206
+Pre-training layer 0, epoch 94, cost  -68.5898800052
+Pre-training layer 0, epoch 95, cost  -68.5799299799
+Pre-training layer 0, epoch 96, cost  -68.5391671301
+Pre-training layer 0, epoch 97, cost  -68.5842469334
+Pre-training layer 0, epoch 98, cost  -68.5281515825
+Pre-training layer 0, epoch 99, cost  -68.5373687043
+Pre-training layer 1, epoch 0, cost  -173.049592319
+Pre-training layer 1, epoch 1, cost  -150.795000082
+Pre-training layer 1, epoch 2, cost  -145.684324868
+Pre-training layer 1, epoch 3, cost  -142.889884063
+Pre-training layer 1, epoch 4, cost  -141.057600797
+Pre-training layer 1, epoch 5, cost  -139.644272111
+Pre-training layer 1, epoch 6, cost  -138.525206369
+Pre-training layer 1, epoch 7, cost  -137.60256132
+Pre-training layer 1, epoch 8, cost  -136.830269566
+Pre-training layer 1, epoch 9, cost  -136.189299921
+Pre-training layer 1, epoch 10, cost  -135.602047158
+Pre-training layer 1, epoch 11, cost  -135.095419877
+Pre-training layer 1, epoch 12, cost  -134.652686061
+Pre-training layer 1, epoch 13, cost  -134.251926207
+Pre-training layer 1, epoch 14, cost  -133.93288156
+Pre-training layer 1, epoch 15, cost  -133.601722762
+Pre-training layer 1, epoch 16, cost  -133.331659629
+Pre-training layer 1, epoch 17, cost  -133.086304564
+Pre-training layer 1, epoch 18, cost  -132.843277057
+Pre-training layer 1, epoch 19, cost  -132.652056219
+Pre-training layer 1, epoch 20, cost  -132.487685408
+Pre-training layer 1, epoch 21, cost  -132.327548094
+Pre-training layer 1, epoch 22, cost  -132.159287006
+Pre-training layer 1, epoch 23, cost  -131.982176337
+Pre-training layer 1, epoch 24, cost  -131.86712017
+Pre-training layer 1, epoch 25, cost  -131.755545313
+Pre-training layer 1, epoch 26, cost  -131.622254436
+Pre-training layer 1, epoch 27, cost  -131.544382563
+Pre-training layer 1, epoch 28, cost  -131.433342159
+Pre-training layer 1, epoch 29, cost  -131.338544123
+Pre-training layer 1, epoch 30, cost  -131.261275173
+Pre-training layer 1, epoch 31, cost  -131.198725384
+Pre-training layer 1, epoch 32, cost  -131.148808603
+Pre-training layer 1, epoch 33, cost  -131.04019507
+Pre-training layer 1, epoch 34, cost  -130.976072632
+Pre-training layer 1, epoch 35, cost  -130.941921408
+Pre-training layer 1, epoch 36, cost  -130.850610383
+Pre-training layer 1, epoch 37, cost  -130.813896174
+Pre-training layer 1, epoch 38, cost  -130.773579178
+Pre-training layer 1, epoch 39, cost  -130.703606703
+Pre-training layer 1, epoch 40, cost  -130.640376081
+Pre-training layer 1, epoch 41, cost  -130.618376319
+Pre-training layer 1, epoch 42, cost  -130.577199638
+Pre-training layer 1, epoch 43, cost  -130.523949681
+Pre-training layer 1, epoch 44, cost  -130.489151891
+Pre-training layer 1, epoch 45, cost  -130.446685745
+Pre-training layer 1, epoch 46, cost  -130.426279386
+Pre-training layer 1, epoch 47, cost  -130.397667185
+Pre-training layer 1, epoch 48, cost  -130.371518195
+Pre-training layer 1, epoch 49, cost  -130.333362901
+Pre-training layer 1, epoch 50, cost  -130.301608492
+Pre-training layer 1, epoch 51, cost  -130.305053019
+Pre-training layer 1, epoch 52, cost  -130.241212322
+Pre-training layer 1, epoch 53, cost  -130.252202025
+Pre-training layer 1, epoch 54, cost  -130.219388202
+Pre-training layer 1, epoch 55, cost  -130.17441746
+Pre-training layer 1, epoch 56, cost  -130.172421927
+Pre-training layer 1, epoch 57, cost  -130.158910515
+Pre-training layer 1, epoch 58, cost  -130.151784772
+Pre-training layer 1, epoch 59, cost  -130.109584339
+Pre-training layer 1, epoch 60, cost  -130.121974772
+Pre-training layer 1, epoch 61, cost  -130.072330739
+Pre-training layer 1, epoch 62, cost  -130.035720549
+Pre-training layer 1, epoch 63, cost  -130.036498463
+Pre-training layer 1, epoch 64, cost  -130.03135416
+Pre-training layer 1, epoch 65, cost  -130.018787911
+Pre-training layer 1, epoch 66, cost  -130.001764208
+Pre-training layer 1, epoch 67, cost  -129.954754845
+Pre-training layer 1, epoch 68, cost  -129.960211299
+Pre-training layer 1, epoch 69, cost  -129.943844655
+Pre-training layer 1, epoch 70, cost  -129.953926744
+Pre-training layer 1, epoch 71, cost  -129.920173482
+Pre-training layer 1, epoch 72, cost  -129.922823166
+Pre-training layer 1, epoch 73, cost  -129.916126104
+Pre-training layer 1, epoch 74, cost  -129.877106604
+Pre-training layer 1, epoch 75, cost  -129.889579158
+Pre-training layer 1, epoch 76, cost  -129.871909921
+Pre-training layer 1, epoch 77, cost  -129.836787464
+Pre-training layer 1, epoch 78, cost  -129.866443355
+Pre-training layer 1, epoch 79, cost  -129.822278691
+Pre-training layer 1, epoch 80, cost  -129.811618011
+Pre-training layer 1, epoch 81, cost  -129.840523811
+Pre-training layer 1, epoch 82, cost  -129.800294934
+Pre-training layer 1, epoch 83, cost  -129.777608885
+Pre-training layer 1, epoch 84, cost  -129.76503217
+Pre-training layer 1, epoch 85, cost  -129.784562029
+Pre-training layer 1, epoch 86, cost  -129.766086089
+Pre-training layer 1, epoch 87, cost  -129.780917849
+Pre-training layer 1, epoch 88, cost  -129.773206473
+Pre-training layer 1, epoch 89, cost  -129.731856653
+Pre-training layer 1, epoch 90, cost  -129.72059209
+Pre-training layer 1, epoch 91, cost  -129.723046003
+Pre-training layer 1, epoch 92, cost  -129.744987809
+Pre-training layer 1, epoch 93, cost  -129.71618883
+Pre-training layer 1, epoch 94, cost  -129.69339899
+Pre-training layer 1, epoch 95, cost  -129.710332882
+Pre-training layer 1, epoch 96, cost  -129.677398721
+Pre-training layer 1, epoch 97, cost  -129.682654458
+Pre-training layer 1, epoch 98, cost  -129.690630948
+Pre-training layer 1, epoch 99, cost  -129.659478059
+Pre-training layer 2, epoch 0, cost  -69.6488149877
+Pre-training layer 2, epoch 1, cost  -57.4103157577
+Pre-training layer 2, epoch 2, cost  -54.9281732832
+Pre-training layer 2, epoch 3, cost  -53.6297163056
+Pre-training layer 2, epoch 4, cost  -52.7557778967
+Pre-training layer 2, epoch 5, cost  -52.1238702536
+Pre-training layer 2, epoch 6, cost  -51.6368176564
+Pre-training layer 2, epoch 7, cost  -51.2344085305
+Pre-training layer 2, epoch 8, cost  -50.8522829275
+Pre-training layer 2, epoch 9, cost  -50.5573065699
+Pre-training layer 2, epoch 10, cost  -50.3225616302
+Pre-training layer 2, epoch 11, cost  -50.0857772294
+Pre-training layer 2, epoch 12, cost  -49.8524668546
+Pre-training layer 2, epoch 13, cost  -49.6707637251
+Pre-training layer 2, epoch 14, cost  -49.4944695834
+Pre-training layer 2, epoch 15, cost  -49.3285293297
+Pre-training layer 2, epoch 16, cost  -49.197914825
+Pre-training layer 2, epoch 17, cost  -49.0547385503
+Pre-training layer 2, epoch 18, cost  -48.9332884991
+Pre-training layer 2, epoch 19, cost  -48.8197567715
+Pre-training layer 2, epoch 20, cost  -48.7384048906
+Pre-training layer 2, epoch 21, cost  -48.6302840443
+Pre-training layer 2, epoch 22, cost  -48.5211081195
+Pre-training layer 2, epoch 23, cost  -48.4228038893
+Pre-training layer 2, epoch 24, cost  -48.3429309984
+Pre-training layer 2, epoch 25, cost  -48.2741644146
+Pre-training layer 2, epoch 26, cost  -48.1724040021
+Pre-training layer 2, epoch 27, cost  -48.135488814
+Pre-training layer 2, epoch 28, cost  -48.0286371415
+Pre-training layer 2, epoch 29, cost  -47.9644585408
+Pre-training layer 2, epoch 30, cost  -47.9188719878
+Pre-training layer 2, epoch 31, cost  -47.8657446338
+Pre-training layer 2, epoch 32, cost  -47.8125958062
+Pre-training layer 2, epoch 33, cost  -47.7627709279
+Pre-training layer 2, epoch 34, cost  -47.7146495788
+Pre-training layer 2, epoch 35, cost  -47.6546593974
+Pre-training layer 2, epoch 36, cost  -47.5971022014
+Pre-training layer 2, epoch 37, cost  -47.5614306916
+Pre-training layer 2, epoch 38, cost  -47.4945778832
+Pre-training layer 2, epoch 39, cost  -47.4679366097
+Pre-training layer 2, epoch 40, cost  -47.40902579
+Pre-training layer 2, epoch 41, cost  -47.3622485849
+Pre-training layer 2, epoch 42, cost  -47.347809266
+Pre-training layer 2, epoch 43, cost  -47.289282118
+Pre-training layer 2, epoch 44, cost  -47.2630201695
+Pre-training layer 2, epoch 45, cost  -47.2602365235
+Pre-training layer 2, epoch 46, cost  -47.2114308433
+Pre-training layer 2, epoch 47, cost  -47.193122434
+Pre-training layer 2, epoch 48, cost  -47.1565646103
+Pre-training layer 2, epoch 49, cost  -47.1321016553
+Pre-training layer 2, epoch 50, cost  -47.0871312433
+Pre-training layer 2, epoch 51, cost  -47.0553736469
+Pre-training layer 2, epoch 52, cost  -47.0507267612
+Pre-training layer 2, epoch 53, cost  -47.0100245807
+Pre-training layer 2, epoch 54, cost  -46.9821108183
+Pre-training layer 2, epoch 55, cost  -46.9431548582
+Pre-training layer 2, epoch 56, cost  -46.9458298354
+Pre-training layer 2, epoch 57, cost  -46.8978296709
+Pre-training layer 2, epoch 58, cost  -46.905369724
+Pre-training layer 2, epoch 59, cost  -46.8959392844
+Pre-training layer 2, epoch 60, cost  -46.858579984
+Pre-training layer 2, epoch 61, cost  -46.841393284
+Pre-training layer 2, epoch 62, cost  -46.7983982415
+Pre-training layer 2, epoch 63, cost  -46.8001311814
+Pre-training layer 2, epoch 64, cost  -46.7716861835
+Pre-training layer 2, epoch 65, cost  -46.7472300628
+Pre-training layer 2, epoch 66, cost  -46.7578303811
+Pre-training layer 2, epoch 67, cost  -46.7231482928
+Pre-training layer 2, epoch 68, cost  -46.7118636936
+Pre-training layer 2, epoch 69, cost  -46.709233877
+Pre-training layer 2, epoch 70, cost  -46.6680591821
+Pre-training layer 2, epoch 71, cost  -46.6465041946
+Pre-training layer 2, epoch 72, cost  -46.6634259034
+Pre-training layer 2, epoch 73, cost  -46.6565565658
+Pre-training layer 2, epoch 74, cost  -46.6420092622
+Pre-training layer 2, epoch 75, cost  -46.6191117262
+Pre-training layer 2, epoch 76, cost  -46.5994022705
+Pre-training layer 2, epoch 77, cost  -46.593608788
+Pre-training layer 2, epoch 78, cost  -46.5965071471
+Pre-training layer 2, epoch 79, cost  -46.5515402523
+Pre-training layer 2, epoch 80, cost  -46.5669985494
+Pre-training layer 2, epoch 81, cost  -46.5424948169
+Pre-training layer 2, epoch 82, cost  -46.5380208064
+Pre-training layer 2, epoch 83, cost  -46.5221389155
+Pre-training layer 2, epoch 84, cost  -46.5332557013
+Pre-training layer 2, epoch 85, cost  -46.5160590249
+Pre-training layer 2, epoch 86, cost  -46.4846564627
+Pre-training layer 2, epoch 87, cost  -46.4930994662
+Pre-training layer 2, epoch 88, cost  -46.4712733747
+Pre-training layer 2, epoch 89, cost  -46.4585996169
+Pre-training layer 2, epoch 90, cost  -46.4440858156
+Pre-training layer 2, epoch 91, cost  -46.4671882838
+Pre-training layer 2, epoch 92, cost  -46.4520805768
+Pre-training layer 2, epoch 93, cost  -46.4302760473
+Pre-training layer 2, epoch 94, cost  -46.4229923734
+Pre-training layer 2, epoch 95, cost  -46.4132024733
+Pre-training layer 2, epoch 96, cost  -46.4132684739
+Pre-training layer 2, epoch 97, cost  -46.407329852
+Pre-training layer 2, epoch 98, cost  -46.3943845981
+Pre-training layer 2, epoch 99, cost  -46.3955999967
+... getting the finetuning functions
+... finetuning the model
+epoch 1, minibatch 5000/5000, validation error 3.140000 %
+     epoch 1, minibatch 5000/5000, test error of best model 3.580000 %
+epoch 2, minibatch 5000/5000, validation error 2.500000 %
+     epoch 2, minibatch 5000/5000, test error of best model 2.910000 %
+epoch 3, minibatch 5000/5000, validation error 2.310000 %
+     epoch 3, minibatch 5000/5000, test error of best model 2.470000 %
+epoch 4, minibatch 5000/5000, validation error 2.190000 %
+     epoch 4, minibatch 5000/5000, test error of best model 2.290000 %
+epoch 5, minibatch 5000/5000, validation error 2.040000 %
+     epoch 5, minibatch 5000/5000, test error of best model 2.070000 %
+epoch 6, minibatch 5000/5000, validation error 1.900000 %
+     epoch 6, minibatch 5000/5000, test error of best model 1.890000 %
+epoch 7, minibatch 5000/5000, validation error 1.820000 %
+     epoch 7, minibatch 5000/5000, test error of best model 1.860000 %
+epoch 8, minibatch 5000/5000, validation error 1.690000 %
+     epoch 8, minibatch 5000/5000, test error of best model 1.780000 %
+epoch 9, minibatch 5000/5000, validation error 1.600000 %
+     epoch 9, minibatch 5000/5000, test error of best model 1.760000 %
+epoch 10, minibatch 5000/5000, validation error 1.570000 %
+     epoch 10, minibatch 5000/5000, test error of best model 1.720000 %
+epoch 11, minibatch 5000/5000, validation error 1.520000 %
+     epoch 11, minibatch 5000/5000, test error of best model 1.740000 %
+epoch 12, minibatch 5000/5000, validation error 1.490000 %
+     epoch 12, minibatch 5000/5000, test error of best model 1.740000 %
+epoch 13, minibatch 5000/5000, validation error 1.490000 %
+epoch 14, minibatch 5000/5000, validation error 1.470000 %
+     epoch 14, minibatch 5000/5000, test error of best model 1.610000 %
+epoch 15, minibatch 5000/5000, validation error 1.480000 %
+epoch 16, minibatch 5000/5000, validation error 1.490000 %
+epoch 17, minibatch 5000/5000, validation error 1.490000 %
+epoch 18, minibatch 5000/5000, validation error 1.470000 %
+epoch 19, minibatch 5000/5000, validation error 1.470000 %
+epoch 20, minibatch 5000/5000, validation error 1.450000 %
+     epoch 20, minibatch 5000/5000, test error of best model 1.550000 %
+epoch 21, minibatch 5000/5000, validation error 1.430000 %
+     epoch 21, minibatch 5000/5000, test error of best model 1.540000 %
+epoch 22, minibatch 5000/5000, validation error 1.440000 %
+epoch 23, minibatch 5000/5000, validation error 1.420000 %
+     epoch 23, minibatch 5000/5000, test error of best model 1.530000 %
+epoch 24, minibatch 5000/5000, validation error 1.430000 %
+epoch 25, minibatch 5000/5000, validation error 1.420000 %
+epoch 26, minibatch 5000/5000, validation error 1.420000 %
+epoch 27, minibatch 5000/5000, validation error 1.420000 %
+epoch 28, minibatch 5000/5000, validation error 1.440000 %
+epoch 29, minibatch 5000/5000, validation error 1.440000 %
+epoch 30, minibatch 5000/5000, validation error 1.440000 %
+epoch 31, minibatch 5000/5000, validation error 1.460000 %
+epoch 32, minibatch 5000/5000, validation error 1.460000 %
+epoch 33, minibatch 5000/5000, validation error 1.460000 %
+epoch 34, minibatch 5000/5000, validation error 1.460000 %
+epoch 35, minibatch 5000/5000, validation error 1.460000 %
+epoch 36, minibatch 5000/5000, validation error 1.450000 %
+epoch 37, minibatch 5000/5000, validation error 1.430000 %
+epoch 38, minibatch 5000/5000, validation error 1.430000 %
+epoch 39, minibatch 5000/5000, validation error 1.440000 %
+epoch 40, minibatch 5000/5000, validation error 1.430000 %
+epoch 41, minibatch 5000/5000, validation error 1.420000 %
+epoch 42, minibatch 5000/5000, validation error 1.410000 %
+     epoch 42, minibatch 5000/5000, test error of best model 1.510000 %
+epoch 43, minibatch 5000/5000, validation error 1.410000 %
+epoch 44, minibatch 5000/5000, validation error 1.410000 %
+epoch 45, minibatch 5000/5000, validation error 1.410000 %
+epoch 46, minibatch 5000/5000, validation error 1.410000 %
+epoch 47, minibatch 5000/5000, validation error 1.410000 %
+epoch 48, minibatch 5000/5000, validation error 1.400000 %
+     epoch 48, minibatch 5000/5000, test error of best model 1.510000 %
+epoch 49, minibatch 5000/5000, validation error 1.400000 %
+epoch 50, minibatch 5000/5000, validation error 1.390000 %
+     epoch 50, minibatch 5000/5000, test error of best model 1.510000 %
+epoch 51, minibatch 5000/5000, validation error 1.390000 %
+epoch 52, minibatch 5000/5000, validation error 1.400000 %
+epoch 53, minibatch 5000/5000, validation error 1.390000 %
+epoch 54, minibatch 5000/5000, validation error 1.390000 %
+epoch 55, minibatch 5000/5000, validation error 1.390000 %
+epoch 56, minibatch 5000/5000, validation error 1.370000 %
+     epoch 56, minibatch 5000/5000, test error of best model 1.510000 %
+epoch 57, minibatch 5000/5000, validation error 1.370000 %
+epoch 58, minibatch 5000/5000, validation error 1.370000 %
+epoch 59, minibatch 5000/5000, validation error 1.370000 %
+epoch 60, minibatch 5000/5000, validation error 1.370000 %
+epoch 61, minibatch 5000/5000, validation error 1.380000 %
+epoch 62, minibatch 5000/5000, validation error 1.380000 %
+epoch 63, minibatch 5000/5000, validation error 1.380000 %
+epoch 64, minibatch 5000/5000, validation error 1.380000 %
+epoch 65, minibatch 5000/5000, validation error 1.380000 %
+epoch 66, minibatch 5000/5000, validation error 1.370000 %
+epoch 67, minibatch 5000/5000, validation error 1.360000 %
+     epoch 67, minibatch 5000/5000, test error of best model 1.500000 %
+epoch 68, minibatch 5000/5000, validation error 1.360000 %
+epoch 69, minibatch 5000/5000, validation error 1.360000 %
+epoch 70, minibatch 5000/5000, validation error 1.360000 %
+epoch 71, minibatch 5000/5000, validation error 1.360000 %
+epoch 72, minibatch 5000/5000, validation error 1.360000 %
+epoch 73, minibatch 5000/5000, validation error 1.360000 %
+epoch 74, minibatch 5000/5000, validation error 1.360000 %
+epoch 75, minibatch 5000/5000, validation error 1.370000 %
+epoch 76, minibatch 5000/5000, validation error 1.380000 %
+epoch 77, minibatch 5000/5000, validation error 1.380000 %
+epoch 78, minibatch 5000/5000, validation error 1.380000 %
+epoch 79, minibatch 5000/5000, validation error 1.370000 %
+epoch 80, minibatch 5000/5000, validation error 1.370000 %
+epoch 81, minibatch 5000/5000, validation error 1.370000 %
+epoch 82, minibatch 5000/5000, validation error 1.360000 %
+     epoch 82, minibatch 5000/5000, test error of best model 1.450000 %
+epoch 83, minibatch 5000/5000, validation error 1.360000 %
+epoch 84, minibatch 5000/5000, validation error 1.370000 %
+epoch 85, minibatch 5000/5000, validation error 1.370000 %
+epoch 86, minibatch 5000/5000, validation error 1.370000 %
+epoch 87, minibatch 5000/5000, validation error 1.370000 %
+epoch 88, minibatch 5000/5000, validation error 1.370000 %
+epoch 89, minibatch 5000/5000, validation error 1.370000 %
+epoch 90, minibatch 5000/5000, validation error 1.360000 %
+epoch 91, minibatch 5000/5000, validation error 1.360000 %
+epoch 92, minibatch 5000/5000, validation error 1.360000 %
+epoch 93, minibatch 5000/5000, validation error 1.360000 %
+epoch 94, minibatch 5000/5000, validation error 1.360000 %
+epoch 95, minibatch 5000/5000, validation error 1.360000 %
+epoch 96, minibatch 5000/5000, validation error 1.360000 %
+epoch 97, minibatch 5000/5000, validation error 1.360000 %
+epoch 98, minibatch 5000/5000, validation error 1.360000 %
+epoch 99, minibatch 5000/5000, validation error 1.360000 %
+epoch 100, minibatch 5000/5000, validation error 1.360000 %
+epoch 101, minibatch 5000/5000, validation error 1.360000 %
+epoch 102, minibatch 5000/5000, validation error 1.360000 %
+epoch 103, minibatch 5000/5000, validation error 1.360000 %
+epoch 104, minibatch 5000/5000, validation error 1.360000 %
+epoch 105, minibatch 5000/5000, validation error 1.360000 %
+epoch 106, minibatch 5000/5000, validation error 1.360000 %
+epoch 107, minibatch 5000/5000, validation error 1.360000 %
+epoch 108, minibatch 5000/5000, validation error 1.360000 %
+epoch 109, minibatch 5000/5000, validation error 1.360000 %
+epoch 110, minibatch 5000/5000, validation error 1.360000 %
+epoch 111, minibatch 5000/5000, validation error 1.360000 %
+epoch 112, minibatch 5000/5000, validation error 1.350000 %
+     epoch 112, minibatch 5000/5000, test error of best model 1.440000 %
+epoch 113, minibatch 5000/5000, validation error 1.350000 %
+epoch 114, minibatch 5000/5000, validation error 1.350000 %
+epoch 115, minibatch 5000/5000, validation error 1.350000 %
+epoch 116, minibatch 5000/5000, validation error 1.350000 %
+epoch 117, minibatch 5000/5000, validation error 1.350000 %
+epoch 118, minibatch 5000/5000, validation error 1.350000 %
+epoch 119, minibatch 5000/5000, validation error 1.350000 %
+epoch 120, minibatch 5000/5000, validation error 1.350000 %
+epoch 121, minibatch 5000/5000, validation error 1.340000 %
+     epoch 121, minibatch 5000/5000, test error of best model 1.450000 %
+epoch 122, minibatch 5000/5000, validation error 1.340000 %
+epoch 123, minibatch 5000/5000, validation error 1.340000 %
+epoch 124, minibatch 5000/5000, validation error 1.340000 %
+epoch 125, minibatch 5000/5000, validation error 1.340000 %
+epoch 126, minibatch 5000/5000, validation error 1.340000 %
+epoch 127, minibatch 5000/5000, validation error 1.340000 %
+epoch 128, minibatch 5000/5000, validation error 1.340000 %
+epoch 129, minibatch 5000/5000, validation error 1.340000 %
+epoch 130, minibatch 5000/5000, validation error 1.340000 %
+epoch 131, minibatch 5000/5000, validation error 1.340000 %
+epoch 132, minibatch 5000/5000, validation error 1.340000 %
+epoch 133, minibatch 5000/5000, validation error 1.340000 %
+epoch 134, minibatch 5000/5000, validation error 1.340000 %
+epoch 135, minibatch 5000/5000, validation error 1.340000 %
+epoch 136, minibatch 5000/5000, validation error 1.340000 %
+epoch 137, minibatch 5000/5000, validation error 1.340000 %
+epoch 138, minibatch 5000/5000, validation error 1.340000 %
+epoch 139, minibatch 5000/5000, validation error 1.340000 %
+epoch 140, minibatch 5000/5000, validation error 1.340000 %
+epoch 141, minibatch 5000/5000, validation error 1.340000 %
+epoch 142, minibatch 5000/5000, validation error 1.340000 %
+epoch 143, minibatch 5000/5000, validation error 1.330000 %
+     epoch 143, minibatch 5000/5000, test error of best model 1.440000 %
+epoch 144, minibatch 5000/5000, validation error 1.330000 %
+epoch 145, minibatch 5000/5000, validation error 1.330000 %
+epoch 146, minibatch 5000/5000, validation error 1.330000 %
+epoch 147, minibatch 5000/5000, validation error 1.330000 %
+epoch 148, minibatch 5000/5000, validation error 1.330000 %
+epoch 149, minibatch 5000/5000, validation error 1.330000 %
+epoch 150, minibatch 5000/5000, validation error 1.330000 %
+epoch 151, minibatch 5000/5000, validation error 1.330000 %
+epoch 152, minibatch 5000/5000, validation error 1.330000 %
+epoch 153, minibatch 5000/5000, validation error 1.330000 %
+epoch 154, minibatch 5000/5000, validation error 1.330000 %
+epoch 155, minibatch 5000/5000, validation error 1.330000 %
+epoch 156, minibatch 5000/5000, validation error 1.330000 %
+epoch 157, minibatch 5000/5000, validation error 1.330000 %
+epoch 158, minibatch 5000/5000, validation error 1.330000 %
+epoch 159, minibatch 5000/5000, validation error 1.330000 %
+epoch 160, minibatch 5000/5000, validation error 1.330000 %
+epoch 161, minibatch 5000/5000, validation error 1.330000 %
+epoch 162, minibatch 5000/5000, validation error 1.330000 %
+epoch 163, minibatch 5000/5000, validation error 1.330000 %
+epoch 164, minibatch 5000/5000, validation error 1.330000 %
+epoch 165, minibatch 5000/5000, validation error 1.330000 %
+epoch 166, minibatch 5000/5000, validation error 1.330000 %
+epoch 167, minibatch 5000/5000, validation error 1.330000 %
+epoch 168, minibatch 5000/5000, validation error 1.330000 %
+epoch 169, minibatch 5000/5000, validation error 1.330000 %
+epoch 170, minibatch 5000/5000, validation error 1.330000 %
+epoch 171, minibatch 5000/5000, validation error 1.330000 %
+epoch 172, minibatch 5000/5000, validation error 1.330000 %
+epoch 173, minibatch 5000/5000, validation error 1.330000 %
+epoch 174, minibatch 5000/5000, validation error 1.330000 %
+epoch 175, minibatch 5000/5000, validation error 1.320000 %
+     epoch 175, minibatch 5000/5000, test error of best model 1.440000 %
+epoch 176, minibatch 5000/5000, validation error 1.320000 %
+epoch 177, minibatch 5000/5000, validation error 1.310000 %
+     epoch 177, minibatch 5000/5000, test error of best model 1.440000 %
+epoch 178, minibatch 5000/5000, validation error 1.310000 %
+epoch 179, minibatch 5000/5000, validation error 1.310000 %
+epoch 180, minibatch 5000/5000, validation error 1.320000 %
+epoch 181, minibatch 5000/5000, validation error 1.320000 %
+epoch 182, minibatch 5000/5000, validation error 1.320000 %
+epoch 183, minibatch 5000/5000, validation error 1.320000 %
+epoch 184, minibatch 5000/5000, validation error 1.320000 %
+epoch 185, minibatch 5000/5000, validation error 1.320000 %
+epoch 186, minibatch 5000/5000, validation error 1.320000 %
+epoch 187, minibatch 5000/5000, validation error 1.320000 %
+epoch 188, minibatch 5000/5000, validation error 1.320000 %
+epoch 189, minibatch 5000/5000, validation error 1.320000 %
+epoch 190, minibatch 5000/5000, validation error 1.320000 %
+epoch 191, minibatch 5000/5000, validation error 1.320000 %
+epoch 192, minibatch 5000/5000, validation error 1.320000 %
+epoch 193, minibatch 5000/5000, validation error 1.320000 %
+epoch 194, minibatch 5000/5000, validation error 1.320000 %
+epoch 195, minibatch 5000/5000, validation error 1.320000 %
+epoch 196, minibatch 5000/5000, validation error 1.310000 %
+epoch 197, minibatch 5000/5000, validation error 1.310000 %
+epoch 198, minibatch 5000/5000, validation error 1.310000 %
+epoch 199, minibatch 5000/5000, validation error 1.310000 %
+epoch 200, minibatch 5000/5000, validation error 1.310000 %
+epoch 201, minibatch 5000/5000, validation error 1.310000 %
+epoch 202, minibatch 5000/5000, validation error 1.310000 %
+epoch 203, minibatch 5000/5000, validation error 1.310000 %
+epoch 204, minibatch 5000/5000, validation error 1.310000 %
+epoch 205, minibatch 5000/5000, validation error 1.300000 %
+     epoch 205, minibatch 5000/5000, test error of best model 1.430000 %
+epoch 206, minibatch 5000/5000, validation error 1.300000 %
+epoch 207, minibatch 5000/5000, validation error 1.300000 %
+epoch 208, minibatch 5000/5000, validation error 1.300000 %
+epoch 209, minibatch 5000/5000, validation error 1.300000 %
+epoch 210, minibatch 5000/5000, validation error 1.300000 %
+epoch 211, minibatch 5000/5000, validation error 1.300000 %
+epoch 212, minibatch 5000/5000, validation error 1.300000 %
+epoch 213, minibatch 5000/5000, validation error 1.310000 %
+epoch 214, minibatch 5000/5000, validation error 1.310000 %
+epoch 215, minibatch 5000/5000, validation error 1.310000 %
+epoch 216, minibatch 5000/5000, validation error 1.310000 %
+epoch 217, minibatch 5000/5000, validation error 1.310000 %
+epoch 218, minibatch 5000/5000, validation error 1.310000 %
+epoch 219, minibatch 5000/5000, validation error 1.310000 %
+epoch 220, minibatch 5000/5000, validation error 1.310000 %
+epoch 221, minibatch 5000/5000, validation error 1.310000 %
+epoch 222, minibatch 5000/5000, validation error 1.310000 %
+epoch 223, minibatch 5000/5000, validation error 1.310000 %
+epoch 224, minibatch 5000/5000, validation error 1.310000 %
+epoch 225, minibatch 5000/5000, validation error 1.310000 %
+epoch 226, minibatch 5000/5000, validation error 1.310000 %
+epoch 227, minibatch 5000/5000, validation error 1.310000 %
+epoch 228, minibatch 5000/5000, validation error 1.310000 %
+epoch 229, minibatch 5000/5000, validation error 1.310000 %
+epoch 230, minibatch 5000/5000, validation error 1.310000 %
+epoch 231, minibatch 5000/5000, validation error 1.310000 %
+epoch 232, minibatch 5000/5000, validation error 1.310000 %
+epoch 233, minibatch 5000/5000, validation error 1.310000 %
+epoch 234, minibatch 5000/5000, validation error 1.310000 %
+epoch 235, minibatch 5000/5000, validation error 1.310000 %
+epoch 236, minibatch 5000/5000, validation error 1.310000 %
+epoch 237, minibatch 5000/5000, validation error 1.300000 %
+epoch 238, minibatch 5000/5000, validation error 1.300000 %
+epoch 239, minibatch 5000/5000, validation error 1.300000 %
+epoch 240, minibatch 5000/5000, validation error 1.300000 %
+epoch 241, minibatch 5000/5000, validation error 1.300000 %
+epoch 242, minibatch 5000/5000, validation error 1.300000 %
+epoch 243, minibatch 5000/5000, validation error 1.300000 %
+epoch 244, minibatch 5000/5000, validation error 1.300000 %
+epoch 245, minibatch 5000/5000, validation error 1.300000 %
+epoch 246, minibatch 5000/5000, validation error 1.300000 %
+epoch 247, minibatch 5000/5000, validation error 1.300000 %
+epoch 248, minibatch 5000/5000, validation error 1.300000 %
+epoch 249, minibatch 5000/5000, validation error 1.300000 %
+epoch 250, minibatch 5000/5000, validation error 1.300000 %
+epoch 251, minibatch 5000/5000, validation error 1.300000 %
+epoch 252, minibatch 5000/5000, validation error 1.300000 %
+epoch 253, minibatch 5000/5000, validation error 1.300000 %
+epoch 254, minibatch 5000/5000, validation error 1.300000 %
+epoch 255, minibatch 5000/5000, validation error 1.300000 %
+epoch 256, minibatch 5000/5000, validation error 1.300000 %
+epoch 257, minibatch 5000/5000, validation error 1.300000 %
+epoch 258, minibatch 5000/5000, validation error 1.300000 %
+epoch 259, minibatch 5000/5000, validation error 1.300000 %
+epoch 260, minibatch 5000/5000, validation error 1.300000 %
+epoch 261, minibatch 5000/5000, validation error 1.300000 %
+epoch 262, minibatch 5000/5000, validation error 1.300000 %
+epoch 263, minibatch 5000/5000, validation error 1.300000 %
+epoch 264, minibatch 5000/5000, validation error 1.300000 %
+epoch 265, minibatch 5000/5000, validation error 1.300000 %
+epoch 266, minibatch 5000/5000, validation error 1.300000 %
+epoch 267, minibatch 5000/5000, validation error 1.300000 %
+epoch 268, minibatch 5000/5000, validation error 1.300000 %
+epoch 269, minibatch 5000/5000, validation error 1.300000 %
+epoch 270, minibatch 5000/5000, validation error 1.300000 %
+epoch 271, minibatch 5000/5000, validation error 1.300000 %
+epoch 272, minibatch 5000/5000, validation error 1.300000 %
+epoch 273, minibatch 5000/5000, validation error 1.300000 %
+epoch 274, minibatch 5000/5000, validation error 1.300000 %
+epoch 275, minibatch 5000/5000, validation error 1.300000 %
+epoch 276, minibatch 5000/5000, validation error 1.300000 %
+epoch 277, minibatch 5000/5000, validation error 1.300000 %
+epoch 278, minibatch 5000/5000, validation error 1.300000 %
+epoch 279, minibatch 5000/5000, validation error 1.300000 %
+epoch 280, minibatch 5000/5000, validation error 1.300000 %
+epoch 281, minibatch 5000/5000, validation error 1.300000 %
+epoch 282, minibatch 5000/5000, validation error 1.300000 %
+epoch 283, minibatch 5000/5000, validation error 1.300000 %
+epoch 284, minibatch 5000/5000, validation error 1.300000 %
+epoch 285, minibatch 5000/5000, validation error 1.300000 %
+epoch 286, minibatch 5000/5000, validation error 1.300000 %
+epoch 287, minibatch 5000/5000, validation error 1.300000 %
+epoch 288, minibatch 5000/5000, validation error 1.300000 %
+epoch 289, minibatch 5000/5000, validation error 1.300000 %
+epoch 290, minibatch 5000/5000, validation error 1.300000 %
+epoch 291, minibatch 5000/5000, validation error 1.300000 %
+epoch 292, minibatch 5000/5000, validation error 1.300000 %
+epoch 293, minibatch 5000/5000, validation error 1.300000 %
+epoch 294, minibatch 5000/5000, validation error 1.300000 %
+epoch 295, minibatch 5000/5000, validation error 1.300000 %
+epoch 296, minibatch 5000/5000, validation error 1.300000 %
+epoch 297, minibatch 5000/5000, validation error 1.300000 %
+epoch 298, minibatch 5000/5000, validation error 1.300000 %
+epoch 299, minibatch 5000/5000, validation error 1.300000 %
+epoch 300, minibatch 5000/5000, validation error 1.300000 %
+epoch 301, minibatch 5000/5000, validation error 1.300000 %
+epoch 302, minibatch 5000/5000, validation error 1.300000 %
+epoch 303, minibatch 5000/5000, validation error 1.300000 %
+epoch 304, minibatch 5000/5000, validation error 1.300000 %
+epoch 305, minibatch 5000/5000, validation error 1.300000 %
+epoch 306, minibatch 5000/5000, validation error 1.300000 %
+epoch 307, minibatch 5000/5000, validation error 1.300000 %
+epoch 308, minibatch 5000/5000, validation error 1.300000 %
+epoch 309, minibatch 5000/5000, validation error 1.300000 %
+epoch 310, minibatch 5000/5000, validation error 1.300000 %
+epoch 311, minibatch 5000/5000, validation error 1.300000 %
+epoch 312, minibatch 5000/5000, validation error 1.300000 %
+epoch 313, minibatch 5000/5000, validation error 1.300000 %
+epoch 314, minibatch 5000/5000, validation error 1.300000 %
+epoch 315, minibatch 5000/5000, validation error 1.300000 %
+epoch 316, minibatch 5000/5000, validation error 1.300000 %
+epoch 317, minibatch 5000/5000, validation error 1.290000 %
+     epoch 317, minibatch 5000/5000, test error of best model 1.410000 %
+epoch 318, minibatch 5000/5000, validation error 1.290000 %
+epoch 319, minibatch 5000/5000, validation error 1.290000 %
+epoch 320, minibatch 5000/5000, validation error 1.290000 %
+epoch 321, minibatch 5000/5000, validation error 1.290000 %
+epoch 322, minibatch 5000/5000, validation error 1.290000 %
+epoch 323, minibatch 5000/5000, validation error 1.290000 %
+epoch 324, minibatch 5000/5000, validation error 1.290000 %
+epoch 325, minibatch 5000/5000, validation error 1.290000 %
+epoch 326, minibatch 5000/5000, validation error 1.290000 %
+epoch 327, minibatch 5000/5000, validation error 1.290000 %
+epoch 328, minibatch 5000/5000, validation error 1.290000 %
+epoch 329, minibatch 5000/5000, validation error 1.290000 %
+epoch 330, minibatch 5000/5000, validation error 1.290000 %
+epoch 331, minibatch 5000/5000, validation error 1.280000 %
+     epoch 331, minibatch 5000/5000, test error of best model 1.420000 %
+epoch 332, minibatch 5000/5000, validation error 1.280000 %
+epoch 333, minibatch 5000/5000, validation error 1.280000 %
+epoch 334, minibatch 5000/5000, validation error 1.280000 %
+epoch 335, minibatch 5000/5000, validation error 1.280000 %
+epoch 336, minibatch 5000/5000, validation error 1.280000 %
+epoch 337, minibatch 5000/5000, validation error 1.280000 %
+epoch 338, minibatch 5000/5000, validation error 1.280000 %
+epoch 339, minibatch 5000/5000, validation error 1.280000 %

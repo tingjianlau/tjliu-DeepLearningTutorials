@@ -12,6 +12,7 @@ from __future__ import print_function, division
 import os
 import sys
 import timeit
+from datetime import datetime
 import numpy as np
 import numpy
 import pickle
@@ -22,29 +23,24 @@ import lasagne
 from logistic_sgd import LogisticRegression, load_data
 from RBMs import RBMs
 from DataHandle import DataHandle
-from datetime import datetime
 
 ROOT_PATH = 'data_daily'
 STOCK_ID = '000001'
-
-IS_PRINT_STDOUT = 0 # 是否将输出设置为标准输出
-addtion_str = '_including_rbms'
-#addtion_str = '_excluding_rbms'
-#addtion_str = '_reshape_lstm'
+IS_PRINT_STDOUT = 1 # 是否将输出设置为标准输出
 
 GIBBS_K = 1    
-RBMS_MAX_EPOCH = 40
-RBM_N_HIDDEN = [30, 10]         # number of hidden layer units
+PRETRAINING_EPOCH = 40
+RBM_N_HIDDEN = [20]         # number of hidden layer units
 RBM_SEQ_LENGTH = 5  # how many steps to unroll
 RBM_INPUT_SIZE = RBM_SEQ_LENGTH * 4 
 NETWORK_INPUT_SIZE = RBM_SEQ_LENGTH * 4 
-IS_SAVING_RBM_W_HBIAS = False
+IS_SAVING_RBM_W_HBIAS = True
 PRICE_ROW_INTERVAL = [1, 5]
 RBM_LEARNING_RATE = 0.01   # learning rate
 RBM_BATCH_SIZE = 10
 OUTPUT_SIZE = 2
 IS_SAVING_LABELS = False
-IS_SAVINT_RBM_FEATURES = False 
+IS_SAVINT_RBM_FEATURES = True
 
 LSTM_SEQ_LEN = 5     # how many steps to unroll
 LSTM_N_HIDDEN = 200         # number of hidden layer units
@@ -59,6 +55,14 @@ max_grad_norm = 10
 
 USING_RBMs = 1
 
+def load_data2(dataset):
+    data = open(dataset, 'r')
+    prices = []
+    for line in data:
+        prices.append(line.split('\n')[0].split(','))
+
+    return prices
+
 def build_lstm(input_var=None, W=lasagne.init.GlorotUniform(), b=lasagne.init.Constant(0.)):
     '''
     This creates a LSTM of one hidden layer of 200 units,
@@ -66,58 +70,77 @@ def build_lstm(input_var=None, W=lasagne.init.GlorotUniform(), b=lasagne.init.Co
     no dropout to the input or hidden layer.
     '''
     l_in = lasagne.layers.InputLayer(shape=(LSTM_BATCH_SIZE*LSTM_SEQ_LEN, NETWORK_INPUT_SIZE), input_var=input_var)
+    print('The shape of input is ', l_in.output_shape)
 
-    l_rbms = []
+    '''
+    l_sigmoid = []
     for i in range(len(RBM_N_HIDDEN)):
         if i==0:
-            l_rbms.append(
+            l_sigmoid.append(
                     lasagne.layers.DenseLayer(
                         l_in, 
                         num_units=RBM_N_HIDDEN[i],
-                        W=W[i],
-                        b=b[i],
+                        #W=W[i],
+                        #b=b[i],
                         nonlinearity=lasagne.nonlinearities.sigmoid
                         )
                     )
         else:
-            l_rbms.append(
+            l_sigmoid.append(
                     lasagne.layers.DenseLayer(
-                        l_rbms[i-1],
+                        l_sigmoid[i-1],
                         num_units=RBM_N_HIDDEN[i],
                         W=W[i],
                         b=b[i],
                         nonlinearity=lasagne.nonlinearities.sigmoid
                         )
                     )
-    # reshape不会产生新的W和b参数
+        print('The shape of sigmoid is ', l_sigmoid[i].output_shape)
+        #print('the shape of W is', W[i].get_value().shape)
+    '''
+    '''
+    l_sigmoid = lasagne.layers.DenseLayer(
+                        l_in, 
+                        num_units=RBM_N_HIDDEN[0],
+                        W=W[0],
+                        b=b[0],
+                        nonlinearity=lasagne.nonlinearities.sigmoid
+                        )
+    print('The shape of sigmoid is ', l_sigmoid.output_shape)
+    '''
 
-    l_reshape = lasagne.layers.ReshapeLayer(l_rbms[-1],
-            (LSTM_BATCH_SIZE, LSTM_SEQ_LEN, RBM_N_HIDDEN[-1]))
-    #l_reshape = lasagne.layers.ReshapeLayer(l_in,
-    #        (LSTM_BATCH_SIZE, LSTM_SEQ_LEN, NETWORK_INPUT_SIZE))
+    # reshape不会产生新的W和b参数
+    #l_reshape = lasagne.layers.ReshapeLayer(l_sigmoid[-1],
+    l_reshape = lasagne.layers.ReshapeLayer(l_in,
+            (LSTM_BATCH_SIZE, LSTM_SEQ_LEN, NETWORK_INPUT_SIZE))
+    print('The shape of reshape is ', l_reshape.output_shape)
 
     l_forward = lasagne.layers.LSTMLayer(
             l_reshape, LSTM_N_HIDDEN, grad_clipping=GRAD_CLIP,
+            #l_in, LSTM_N_HIDDEN, grad_clipping=GRAD_CLIP,
+            #l_sigmoid[-1], LSTM_N_HIDDEN, grad_clipping=GRAD_CLIP,
             nonlinearity=lasagne.nonlinearities.tanh,
             only_return_final=True)
+    print('The shape of lstm is ', l_forward.output_shape)
 
     # l_out层会产生一个W和b参数
     l_out = lasagne.layers.DenseLayer(l_forward, num_units=2,
             nonlinearity=lasagne.nonlinearities.softmax)
+    print('The shape of output is ', l_out.output_shape)
     
-    print('\n-----------The shape of every layer----------')
-    print('\t>input layer: ', l_in.output_shape)
-    #for i in range(len(RBM_N_HIDDEN)):
-    #    print('\t>rbm layer_{}: {}'.format(i, l_rbms[i].output_shape))
-    print('\t>reshape layer: ', l_reshape.output_shape)
-    print('\t>lstm layer: ', l_forward.output_shape)
-    print('\t>output layer: ', l_out.output_shape)
-    print('----------------------End---------------------\n')
-    
+    '''
+    all_params = lasagne.layers.get_all_params(l_out)
+    print(all_params)
+    print(type(all_params[0]))
+    print(all_params[0].get_value().shape)
+    print(all_params[0].get_value())
+    #[W, b, W_in_to_ingate, W_hid_to_ingate, b_ingate, W_in_to_forgetgae, W_hid_to_forgetgate, b_forgetgate, W_in_to_cell, W_hid_to_cell,b_cell, W_in_to_outgate, W_hid_to_outgate, b_outgate, W_cell_to_inate, W_cell_to_forgetgate, W_cell_to_outgate, cell_init, hid_init,W, b] 
+    '''
     return l_out
 
 def gen_data(p, data, data_y, batch_size = LSTM_BATCH_SIZE, input_size = NETWORK_INPUT_SIZE):
     x = np.zeros((batch_size*LSTM_SEQ_LEN, input_size))
+    #x = np.zeros((batch_size, LSTM_SEQ_LEN, input_size))
     y = np.zeros((batch_size, 2))
     y_old = np.zeros(batch_size)
 
@@ -125,6 +148,8 @@ def gen_data(p, data, data_y, batch_size = LSTM_BATCH_SIZE, input_size = NETWORK
         ptr = n
         for i in range(LSTM_SEQ_LEN):
             for j in range(0, input_size):
+                #print(p+ptr+j)
+                #x[n,i,j] = data[p+ptr+i][j]
                 x[n*LSTM_SEQ_LEN+i][j] = data[p+ptr+i][j]
         
         if (int(data_y[p+ptr+LSTM_SEQ_LEN-1]) == 1):
@@ -169,7 +194,6 @@ def train_RBMs(datasets, batch_size, n_ins, hidden_layers_sizes, k,
     start_time = timeit.default_timer()
     # Pre-train layer-wise
     last_cost_mean = 10000
-    old_pretrain_lr = pretrain_lr
     for i in range(rbms.n_layers):
         # go through pretraining epochs
         for epoch in range(pretrain_epochs):
@@ -179,8 +203,9 @@ def train_RBMs(datasets, batch_size, n_ins, hidden_layers_sizes, k,
                 c.append(pretraining_fns[i](index=batch_index,
                                             lr=pretrain_lr))
             cost_mean = abs(numpy.mean(c))
-            print('Pre-training layer %i, epoch %d, ls %f, cost %f' 
-                    % (i, epoch, pretrain_lr, cost_mean))
+            print('Pre-training layer %i, epoch %d, cost %f' 
+                    % (i, epoch, cost_mean))
+            '''
             if last_cost_mean <= cost_mean * 1.:
                 pretrain_lr /= 2
                 if pretrain_lr <= 10e-5:
@@ -188,7 +213,7 @@ def train_RBMs(datasets, batch_size, n_ins, hidden_layers_sizes, k,
             print('Pre-training layer %i, epoch %d, lr %f, cost %f' 
                     % (i, epoch, pretrain_lr, cost_mean))
             last_cost_mean = cost_mean
-        pretrain_lr = old_pretrain_lr
+            '''
 
     end_time = timeit.default_timer()
     # end-snippet-2
@@ -309,7 +334,7 @@ def format_path(axes, rbm_n_hidden):
     return  data_x_path, data_y_path, data_unfinetune_features_path,data_finetune_features_path, data_unfinetune_W_path, data_unfinetune_hbias_path, data_res_path
 
 def test_RBMs_lstm(axes,
-        RBMS_MAX_EPOCHs=RBMS_MAX_EPOCH,
+        pretraining_epochs=PRETRAINING_EPOCH,
         rbm_seq_len=RBM_SEQ_LENGTH,
         pretrain_lr=RBM_LEARNING_RATE, k=1,
         rbm_batch_size=RBM_BATCH_SIZE,
@@ -329,7 +354,20 @@ def test_RBMs_lstm(axes,
     #data_set_x = [unshared_datasets[0][0], unshared_datasets[1][0], unshared_datasets[2][0]]
     #data_set_y = [unshared_datasets[0][1], unshared_datasets[1][1], unshared_datasets[2][1]]
     
-    
+    '''
+    with open('joint_seqlen_10_val_data.txt', 'wb') as f:
+        for item in unshared_datasets[1][0]:
+            for i in range(len(item)):
+                f.write("%s\t" % item[i])
+            f.write('\n')
+    with open('joint_seqlen_10_test_data.txt', 'wb') as f:
+        for item in unshared_datasets[2][0]:
+            for i in range(len(item)):
+                f.write("%s\t" % item[i])
+            f.write('\n')
+    sys.exit(0)
+    '''
+
      # 存储对应的y类号
     if IS_SAVING_LABELS: 
         save_as_txt([unshared_datasets[0][1], unshared_datasets[1][1],
@@ -339,17 +377,16 @@ def test_RBMs_lstm(axes,
     print('\t>time: ', datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
     print("\t>trainset shape: " , shared_datasets[0][0].get_value().shape) 
     print('\t>rbms hidden layers: ', RBM_N_HIDDEN)
-    print('\t>rbms seq length: ', RBM_SEQ_LENGTH)
     print('\t>axes: ', axes)
+    print('\t>lstm seq lenght: ', LSTM_SEQ_LEN)
     print('\t>lstm hidden layers: ', LSTM_N_HIDDEN)
-    print('\t>lstm seq length: ', LSTM_SEQ_LEN)
     print('-----------------------End--------------------\n')
-    print('... building the rbms')
+    print('... building the model')
     
     # pretraining RBMs and getting the W and hbias of the RBMs
     rbms_W, rbms_hbias = train_RBMs(shared_datasets,
             RBM_BATCH_SIZE, RBM_INPUT_SIZE, RBM_N_HIDDEN,
-            GIBBS_K, RBMS_MAX_EPOCH, RBM_LEARNING_RATE, 
+            GIBBS_K, PRETRAINING_EPOCH, RBM_LEARNING_RATE, 
             data_finetune_features_path, data_unfinetune_W_path,
             data_unfinetune_hbias_path)
     
@@ -361,9 +398,9 @@ def test_RBMs_lstm(axes,
     valid_data_size = len(unshared_datasets[1][0])
     test_data_size = len(unshared_datasets[2][0])
 
-    #print('train_data_size: {}'.format(train_data_size))
-    #print('val_data_size: {}'.format(valid_data_size))
-    #print('test_data_size: {}'.format(test_data_size))
+    print('train_data_size: {}'.format(train_data_size))
+    print('val_data_size: {}'.format(valid_data_size))
+    print('test_data_size: {}'.format(test_data_size))
     
     # prepare theano variables for inputs and targets
     input_var = T.matrix('inputs')
@@ -371,16 +408,13 @@ def test_RBMs_lstm(axes,
     target_var = T.matrix('targets')
     
     # build the network
-    print('\nbuilding network ...')
-    #l_out = build_lstm(input_var)
+    print('building network ...')
     l_out = build_lstm(input_var, rbms_W, rbms_hbias)
-    '''
     all_layers = lasagne.layers.get_all_layers(l_out)
     print('The current network architecture is\n--------------------')
     for item in all_layers:
         print('\t%s' % item)
-    '''
-    
+
     # Create loss expression for training
     network_output = lasagne.layers.get_output(l_out)
     predicted_values = network_output
@@ -395,7 +429,8 @@ def test_RBMs_lstm(axes,
     print('Compute updates ...')
     sh_lr = theano.shared(lasagne.utils.floatX(LSTM_LEARNING_RATE))
     all_params = lasagne.layers.get_all_params(l_out, trainable=True)
-    #print(all_params)
+    print('All the params of the current network is\n---------------------')
+    print(all_params)
     updates = lasagne.updates.adagrad(cost, all_params, learning_rate=sh_lr)
 
     # Compile training and validating functions
@@ -421,6 +456,7 @@ def test_RBMs_lstm(axes,
     p = 0
     last_cost_val = 10000
     best_cost_val = 10000
+    #data_set_xx = load_data2('joint_seqlen_10_data.txt')
     try:
         step = LSTM_SEQ_LEN+ LSTM_BATCH_SIZE- 1
         for it in xrange(LSTM_NUM_EPOCHS):
@@ -490,9 +526,9 @@ if __name__ == '__main__':
     if len(sys.argv)!=3:
         print('Pls enter axes')
         sys.exit(0)
-    start_running = timeit.default_timer()
     axis_1, axis_2 = int(sys.argv[1]), int(sys.argv[2])
 
+    suffix_str = '_reshape_lstm'
     # 改变输入流
     if IS_PRINT_STDOUT!=1:
         size_str = 'rbms_'
@@ -501,16 +537,8 @@ if __name__ == '__main__':
             size_str += '_'
 
         log_path = os.path.join(ROOT_PATH, STOCK_ID, 'log', 'rbm-lstm', 
-                '{}_log_{}seqlen_{}_lstm_{}_seqlen_{}_axes_{}_{}{}.log'.format(STOCK_ID, size_str, RBM_SEQ_LENGTH, LSTM_N_HIDDEN, LSTM_SEQ_LEN, axis_1, axis_2, addtion_str))
+                '{}_log_{}seqlen_{}_lstm_{}_seqlen_{}_axes_{}_{}{}.log'.format(STOCK_ID, size_str, RBM_SEQ_LENGTH, LSTM_N_HIDDEN, LSTM_SEQ_LEN, axis_1, axis_2, suffix_str))
         flog = open(log_path, 'wb')
-        old_stdout = sys.stdout
         sys.stdout = flog
 
     test_RBMs_lstm(axes=[axis_1, axis_2])
-
-    end_running = timeit.default_timer()
-    print('\n\nThe network ran for {:.2f}m'.format((end_running - start_running)/60.))
-
-    if IS_PRINT_STDOUT!=1:
-        sys.stdout = old_stdout
-        print('Done!\nLog path is {}'.format(log_path))

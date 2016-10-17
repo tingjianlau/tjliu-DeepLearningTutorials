@@ -21,25 +21,25 @@ from theano.sandbox.rng_mrg import MRG_RandomStreams
 import lasagne
 from logistic_sgd import LogisticRegression, load_data
 from RBMs import RBMs
-from DataHandle import DataHandle
+from DataHandle import DataHandle, DataHandle_minute
 from datetime import datetime
 
-ROOT_PATH = 'data_daily'
-STOCK_ID = '000001'
+ROOT_PATH = 'data_minute'
+STOCK_ID = 'SZ000001'
 
-IS_PRINT_STDOUT = 1 # 是否将输出设置为标准输出
+IS_PRINT_STDOUT = 0 # 是否将输出设置为标准输出
 addtion_str = '_including_rbms'
 #addtion_str = '_excluding_rbms'
 #addtion_str = '_reshape_lstm'
 
 GIBBS_K = 1    
-RBMS_MAX_EPOCH = 40
-RBM_N_HIDDEN = [30]         # number of hidden layer units
-RBM_SEQ_LENGTH = 5  # how many steps to unroll
-RBM_INPUT_SIZE = RBM_SEQ_LENGTH * 4 
-NETWORK_INPUT_SIZE = RBM_SEQ_LENGTH * 4 
+RBMS_MAX_EPOCH = 100
+RBM_N_HIDDEN = [5]         # number of hidden layer units
+RBM_SEQ_LENGTH = 1  # how many steps to unroll
+RBM_INPUT_SIZE = RBM_SEQ_LENGTH * 48 * 4
+NETWORK_INPUT_SIZE = RBM_SEQ_LENGTH * 48 * 4
 IS_SAVING_RBM_W_HBIAS = False
-PRICE_ROW_INTERVAL = [1, 5]
+PRICE_ROW_INTERVAL = [0, 6]
 RBM_LEARNING_RATE = 0.01   # learning rate
 RBM_BATCH_SIZE = 10
 OUTPUT_SIZE = 2
@@ -149,7 +149,7 @@ def train_RBMs(datasets, batch_size, n_ins, hidden_layers_sizes, k,
                 pretrain_epochs, pretrain_lr, data_finetune_features_path,
                 data_unfinetune_W_path, data_unfinetune_hbias_path):
     #计算minibatches的个数
-    n_train_batches = datasets[0][0].get_value().shape[0] // batch_size
+    n_train_batches = datasets[0].get_value().shape[0] // batch_size
 
     # numpy random generator
     numpy_rng = numpy.random.RandomState(123)
@@ -163,7 +163,7 @@ def train_RBMs(datasets, batch_size, n_ins, hidden_layers_sizes, k,
     # PRETRAINING THE MODEL #
     #########################
     print('... getting the pretraining functions')
-    pretraining_fns = rbms.pretraining_functions(train_set_x=datasets[0][0],
+    pretraining_fns = rbms.pretraining_functions(train_set_x=datasets[0],
                             batch_size=batch_size,k=k)
     print('... pre-training the model')
     start_time = timeit.default_timer()
@@ -204,7 +204,7 @@ def train_RBMs(datasets, batch_size, n_ins, hidden_layers_sizes, k,
         features = []
         for i in range(len(datasets)):
             features.append(rbms.extract_features(
-                    aim_set_x=datasets[i][0],batch_size=batch_size)) 
+                    aim_set_x=datasets[i],batch_size=batch_size)) 
         #print(len(features[0][0].shape))
         save_as_txt(features, data_finetune_features_path)
 
@@ -295,6 +295,7 @@ def format_path(axes, rbm_n_hidden):
                         i, axes[0], axes[1])))
 
     # 保存rbm-lstm训练之后的分类结果
+    sec_folder = 'data_res'
     data_res_path = []
     data_res_path.append(
             os.path.join(ROOT_PATH, STOCK_ID, sec_folder,
@@ -324,7 +325,8 @@ def test_RBMs_lstm(axes,
     data_x_path, data_y_path, data_unfinetune_features_path,  data_finetune_features_path, data_unfinetune_W_path, data_unfinetune_hbias_path, data_res_path = format_path(axes, RBM_N_HIDDEN)
 
     # 加载数据
-    dataHandle = DataHandle(RBM_SEQ_LENGTH, PRICE_ROW_INTERVAL, axes, '\t', False)
+    #dataHandle = DataHandle(RBM_SEQ_LENGTH, PRICE_ROW_INTERVAL, axes, '\t', False)
+    dataHandle = DataHandle_minute(RBM_SEQ_LENGTH, PRICE_ROW_INTERVAL, axes, ',', False, 2)
     shared_datasets, unshared_datasets = dataHandle.get_datasets(data_x_path)
     #data_set_x = [unshared_datasets[0][0], unshared_datasets[1][0], unshared_datasets[2][0]]
     #data_set_y = [unshared_datasets[0][1], unshared_datasets[1][1], unshared_datasets[2][1]]
@@ -337,7 +339,9 @@ def test_RBMs_lstm(axes,
     
     print('\n---------------The Network Info---------------')
     print('\t>time: ', datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
-    print("\t>trainset shape: " , shared_datasets[0][0].get_value().shape) 
+    print("\t>trainset shape: " , shared_datasets[0].get_value().shape) 
+    print("\t>valtset shape: " , shared_datasets[1].get_value().shape) 
+    print("\t>testset shape: " , shared_datasets[2].get_value().shape) 
     print('\t>rbms hidden layers: ', RBM_N_HIDDEN)
     print('\t>rbms seq length: ', RBM_SEQ_LENGTH)
     print('\t>axes: ', axes)
